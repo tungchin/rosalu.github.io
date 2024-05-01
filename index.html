@@ -3,15 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Digital Album</title>
+    <title>Wedding Photo Album</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        #gallery {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none; /* For Internet Explorer/Edge */
+        }
+        #gallery::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Opera */
+        }
+        #gallery img {
+            max-width: 100%;
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<div>
-    <h1>My Digital Album</h1>
-    <!-- Replace "YOUR_ALBUM_LINK" with the actual link to your Google Photos album -->
-    <a href="https://photos.app.goo.gl/7HiXhALdzHyXNGhUA" target="_blank">View My Album on Google Photos</a>
+<div class="container">
+    <h1>Our Wedding Photo Album</h1>
+    <div id="gallery"></div>
 </div>
+
+<script>
+    // Google Photos shared links to your wedding album photos
+    var photoLinks = [
+        "https://photos.app.goo.gl/RnSU6PG8fgRZmgSs5",
+        "https://photos.app.goo.gl/RnSU6PG8fgRZmgSs5"
+        // Add more links for additional photos
+    ];
+
+    // Function to create image elements and append them to the gallery
+    function loadPhotos() {
+        var gallery = document.getElementById("gallery");
+        photoLinks.forEach(function(link) {
+            var img = document.createElement("img");
+            img.src = link;
+            gallery.appendChild(img);
+        });
+    }
+
+    // Load photos when the page is fully loaded
+    window.addEventListener("load", loadPhotos);
+</script>
 
 </body>
 </html>
