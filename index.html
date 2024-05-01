@@ -17,8 +17,10 @@
         }
         iframe {
             width: 100%;
+            max-width: 800px; /* Set maximum width to avoid excessive stretching */
             height: 600px; /* Adjust the height as needed */
             border: none;
+            overflow: auto; /* Enable scrolling if content exceeds iframe size */
         }
         .button-container {
             text-align: center;
@@ -52,6 +54,3 @@
         iframe.contentWindow.postMessage('nextPhoto', '*');
     }
 </script>
-
-</body>
-</html>
