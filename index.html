@@ -20,6 +20,19 @@
             height: 600px; /* Adjust the height as needed */
             border: none;
         }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -27,8 +40,18 @@
 <div class="container">
     <h1>My Wedding Photo Album</h1>
     <!-- Replace "YOUR_ALBUM_LINK" with the link to your Google Photos album -->
-    <iframe src="https://photos.app.goo.gl/GDaSfq3WXwWz1DiA9/view" frameborder="0" allowfullscreen></iframe>
+    <iframe id="album-iframe" src="https://lh3.googleusercontent.com/pw/AP1GczNgf5jezrSlzCdQEK-PP4xqt1WvYGxrwKANhARLIeLNG5PebPAcPMqjo5mK3GFa-ed1wtJuX6da2vZSa5MXrR-korzho-OB8_8Rh2iQOByS1dHgwFje=w2400" frameborder="0" allowfullscreen></iframe>
+    <div class="button-container">
+        <button class="button" onclick="nextPhoto()">Next</button>
+    </div>
 </div>
+
+<script>
+    function nextPhoto() {
+        var iframe = document.getElementById('album-iframe');
+        iframe.contentWindow.postMessage('nextPhoto', '*');
+    }
+</script>
 
 </body>
 </html>
