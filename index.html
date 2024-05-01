@@ -17,10 +17,8 @@
         }
         iframe {
             width: 100%;
-            max-width: 800px; /* Set maximum width to avoid excessive stretching */
-            height: 600px; /* Adjust the height as needed */
+            height: 100%; /* Set initial height to 100% */
             border: none;
-            overflow: auto; /* Enable scrolling if content exceeds iframe size */
         }
         .button-container {
             text-align: center;
@@ -52,5 +50,20 @@
     function nextPhoto() {
         var iframe = document.getElementById('album-iframe');
         iframe.contentWindow.postMessage('nextPhoto', '*');
+        resizeIframeToFitContent();
     }
+
+    function resizeIframeToFitContent() {
+        var iframe = document.getElementById('album-iframe');
+        var contentWidth = iframe.contentWindow.document.body.scrollWidth;
+        var contentHeight = iframe.contentWindow.document.body.scrollHeight;
+        iframe.style.width = contentWidth + 'px';
+        iframe.style.height = contentHeight + 'px';
+    }
+
+    // Resize the iframe when the content is loaded
+    document.getElementById('album-iframe').onload = resizeIframeToFitContent;
 </script>
+
+</body>
+</html>
