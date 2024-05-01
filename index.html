@@ -1,71 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Photo Album</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        #gallery {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            scrollbar-width: none; /* For Firefox */
-            -ms-overflow-style: none; /* For Internet Explorer/Edge */
-        }
-        #gallery::-webkit-scrollbar {
-            display: none; /* For Chrome, Safari, and Opera */
-        }
-        #gallery img {
-            max-width: 100%;
-            height: auto;
-            margin-right: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Photos Material Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,300' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<div class="m-p-g">
+    <div class="m-p-g__thumbs" data-google-image-layout data-max-height="350">
+        <img src="http://unsplash.it/600/400?image=940" data-full="http://unsplash.it/1200/800?image=940" class="m-p-g__thumbs-img" />
 
-<div class="container">
-    <h1>Our Wedding Photo Album</h1>
-    <div id="gallery"></div>
+    </div>
+    <div class="m-p-g__fullscreen"></div>
 </div>
-
 <script>
-    // Google Photos shared links to your wedding album photos
-    var photoLinks = [
-        "https://photos.google.com/album/AF1QipNrjHSEoQCUX_L3hqGouSCnbvKWB14oEqRQH_6Z/photo/AF1QipOjNZi3S-wByCqL8XKdHdmF0arusGTDhdtD6JWL",
-        "https://photos.google.com/album/AF1QipNrjHSEoQCUX_L3hqGouSCnbvKWB14oEqRQH_6Z/photo/AF1QipOjNZi3S-wByCqL8XKdHdmF0arusGTDhdtD6JWL"
-        // Add more links for additional photos
-    ];
-
-    // Function to create image elements and append them to the gallery
-    function loadPhotos() {
-        var gallery = document.getElementById("gallery");
-        photoLinks.forEach(function(link) {
-            var img = document.createElement("img");
-            img.src = link;
-            gallery.appendChild(img);
-        });
-    }
-
-    // Load photos when the page is fully loaded
-    window.addEventListener("load", loadPhotos);
+    var elem = document.querySelector('.m-p-g');
+    document.addEventListener('DOMContentLoaded', function() {
+        var gallery = new MaterialPhotoGallery(elem);
+    });
 </script>
-
+<!-- partial -->
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/material-photo-gallery.min.js'></script>
 </body>
 </html>
